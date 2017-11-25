@@ -43,7 +43,7 @@ def run(host, port, router_address, router_port):
                 sock.settimeout(10)
                 server_response = sock.recv(1024)
                 response_packet = Packet.from_bytes(server_response)
-                print(response_message)
+                print(response_packet.payload.decode('utf-8'))
     except Exception as e:
         print("Error occured: {}".format(str(e)))
         sys.exit(0)
